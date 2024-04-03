@@ -18,9 +18,7 @@ st.set_page_config(layout="wide", initial_sidebar_state="expanded")
 
 def add_meta_tag():
     meta_tag = """
-        <head>
-            <meta name="google-site-verification" content="QBiAoAo1GAkCBe1QoWq-dQ1RjtPHeFPyzkqJqsrqW-s" />
-        </head>
+        <meta name="google-site-verification" content="B9VnfMDooPHROzis1eZhRbvoTTitCB_sja8Km6-S7ZI" />
     """
     st.markdown(meta_tag, unsafe_allow_html=True)
 
