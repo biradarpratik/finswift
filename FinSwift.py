@@ -1,4 +1,4 @@
-# StockStream Web App by VAISHNAVI SHARMA & ROHIT MORE
+
 
 from matplotlib.pyplot import axis
 import streamlit as st  # streamlit library
@@ -29,10 +29,10 @@ add_meta_tag()
 
 # Sidebar Section Starts Here
 today = date.today()  # today's date
-st.write('''# StockStream ''')  # title
+st.write('''# FinSwift ''')  # title
 st.sidebar.image("Images/StockStreamLogo1.png", width=250,
                  use_column_width=False)  # logo
-st.sidebar.write('''# StockStream ''')
+st.sidebar.write('''# FinSwift ''')
 
 with st.sidebar: 
         selected = option_menu("Utilities", ["Stocks Performance Comparison", "Real-Time Stock Price", "Stock Prediction", 'About'])
@@ -283,7 +283,7 @@ elif(selected == 'About'):
     </style>
     """, unsafe_allow_html=True)
     
-    st.markdown('<p class="big-font">StockStream is a web application that allows users to visualize Stock Performance Comparison, Real-Time Stock Prices and Stock Price Prediction. This application is developed using Streamlit. Streamlit is an open source app framework in Python language. It helps users to create web apps for Data Science and Machine Learning in a short time. This Project is developed by Pratik ,Himanshu and Gaurav . You can find more about the developers on their GitHub Profiles shared below.<br>Hope you are able to employ this application well and get your desired output.<br> Cheers!</p>', unsafe_allow_html=True)
+    st.markdown('<p class="big-font">FinSwift is a web application that allows users to visualize Stock Performance Comparison, Real-Time Stock Prices and Stock Price Prediction. This application is developed using Streamlit. Streamlit is an open source app framework in Python language. It helps users to create web apps for Data Science and Machine Learning in a short time. This Project is developed by Pratik ,Himanshu and Gaurav . You can find more about the developers on their GitHub Profiles shared below.<br>Hope you are able to employ this application well and get your desired output.<br> Cheers!</p>', unsafe_allow_html=True)
     st.subheader('Pratik Biradar [![Repo](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/biradarpratik) ')
     st.subheader(
         'Himanshu Bendale [![Repo](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/biradarpratik) ')
