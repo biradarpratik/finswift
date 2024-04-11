@@ -288,4 +288,4 @@ elif(selected == 'About'):
     st.subheader(
         'Himanshu Bendale [![Repo](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/biradarpratik) ')
     st.subheader(
-        'Gaurav Avghade [![Repo](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/biradarpratik) ')
+        'Gaurav Avghade [![Repo](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/gauravavghade) ')
