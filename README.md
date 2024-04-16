@@ -25,6 +25,7 @@ FinSwift aims to empower users with comprehensive tools for stock market analysi
 ## Installation
 
 Install Finswift and run locally
+
 Making a new directory for the project
 ```bash
   mkdir MLproject
