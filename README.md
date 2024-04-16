@@ -50,7 +50,7 @@ Runing the Streamlit app locally
 
 ## Features
 
-- Light/dark mode toggle
+- Light/dark mode 
 - Fullscreen mode
 - Cross platform
 - Stock performance Comparison
