@@ -17,7 +17,7 @@ FinSwift aims to empower users with comprehensive tools for stock market analysi
 
 - [@Pratik Biradar](https://www.github.com/biradarpratik)
 - [@Gaurav Avghade](https://www.github.com/gauravavghade)
-- [Himanshu Bendale](https://www.github.com/HimanshuBendale)
+- [@Himanshu Bendale](https://www.github.com/HimanshuBendale)
 
 
 
