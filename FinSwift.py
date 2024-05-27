@@ -1,3 +1,5 @@
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+import numpy as np
 
 
 from matplotlib.pyplot import axis
@@ -210,19 +212,20 @@ elif(selected == 'Real-Time Stock Price'):  # if user selects 'Real-Time Stock P
 # Real-Time Stock Price Section Ends Here
 
 # Stock Price Prediction Section Starts Here
-elif(selected == 'Stock Prediction'):  # if user selects 'Stock Prediction'
+if selected == 'Stock Prediction':  # if user selects 'Stock Prediction'
     st.subheader("Stock Prediction")
 
     tickers = stock_df["Company Name"]  # get company names from csv file
     # dropdown for selecting company
     a = st.selectbox('Pick a Company', tickers)
     with st.spinner('Loading...'):  # spinner while loading
-             time.sleep(2)
-    dict_csv = pd.read_csv('StockStreamTickersData.csv', header=None, index_col=0).to_dict()[1]  # read csv file
+        time.sleep(2)
+    dict_csv = pd.read_csv('StockStreamTickersData.csv',
+                           header=None, index_col=0).to_dict()[1]  # read csv file
     symb_list = []  # list for storing symbols
     val = dict_csv.get(a)  # get symbol from csv file
     symb_list.append(val)  # append symbol to list
-    if(a == ""):  # if user doesn't select any company
+    if a == "":  # if user doesn't select any company
         st.write("Enter a Stock Name")  # display message
     else:  # if user selects a company
         # download data from yfinance
@@ -246,30 +249,52 @@ elif(selected == 'Stock Prediction'):  # if user selects 'Stock Prediction'
         n_years = st.slider('Years of prediction:', 1, 4)
         period = n_years * 365  # calculate number of days
 
-        # Predict forecast with Prophet
-        # create dataframe for training data
+        # Prepare the data for Prophet
         df_train = data[['Date', 'Close']]
-        df_train = df_train.rename(
-            columns={"Date": "ds", "Close": "y"})  # rename columns
+        df_train = df_train.rename(columns={"Date": "ds", "Close": "y"})
 
-        m = Prophet()  # create object for prophet
-        m.fit(df_train)  # fit data to prophet
-        future = m.make_future_dataframe(
-            periods=period)  # create future dataframe
-        forecast = m.predict(future)  # predict future dataframe
+        # Split data into training and testing sets
+        train_size = int(len(df_train) * 0.8)
+        train_data = df_train[:train_size]
+        test_data = df_train[train_size:]
+
+        # Create and train the Prophet model
+        m = Prophet()
+        m.fit(train_data)
+
+        # Make future dataframe for the testing period
+        future = m.make_future_dataframe(periods=len(test_data))
+        forecast = m.predict(future)
+
+        # Filter the forecast for the test period
+        forecast_test = forecast.iloc[-len(test_data):]
+
+        # Calculate accuracy metrics
+        y_true = test_data['y'].values
+        y_pred = forecast_test['yhat'].values
+        mae = mean_absolute_error(y_true, y_pred)
+        rmse = np.sqrt(mean_squared_error(y_true, y_pred))
+
+        # Print accuracy metrics
+        st.subheader('Model Accuracy')
+        st.write(f'Mean Absolute Error (MAE): {mae:.2f}')
+        st.write(f'Root Mean Squared Error (RMSE): {rmse:.2f}')
+
+        # Predict forecast with Prophet for the future period
+        future = m.make_future_dataframe(periods=period)
+        forecast = m.predict(future)
 
         # Show and plot forecast
-        st.subheader('Forecast Data of {}'.format(a))  # display forecast data
-        st.write(forecast)  # display forecast data
+        st.subheader('Forecast Data of {}'.format(a))
+        st.write(forecast)
 
-        st.subheader(f'Forecast plot for {n_years} years')  # display message
-        fig1 = plot_plotly(m, forecast)  # plot forecast
-        st.plotly_chart(fig1)  # display plotly chart
+        st.subheader(f'Forecast plot for {n_years} years')
+        fig1 = plot_plotly(m, forecast)
+        st.plotly_chart(fig1)
 
-        st.subheader("Forecast components of {}".format(a))  # display message
-        fig2 = m.plot_components(forecast)  # plot forecast components
-        st.write(fig2)  # display plotly chart
-
+        st.subheader("Forecast components of {}".format(a))
+        fig2 = m.plot_components(forecast)
+        st.write(fig2)
 # Stock Price Prediction Section Ends Here
 
 elif(selected == 'About'):
