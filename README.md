@@ -40,7 +40,7 @@ Cloning the repository to your local machine
 ``` 
 Installing the Requirements 
 ```bash
-  pip install requirements.txt
+  pip install -r requirements.txt
 ``` 
 
 Runing the Streamlit app locally
