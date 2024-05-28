@@ -309,6 +309,6 @@ elif(selected == 'About'):
     st.markdown('<p class="big-font">FinSwift is a web application that allows users to visualize Stock Performance Comparison, Real-Time Stock Prices and Stock Price Prediction. This application is developed using Streamlit. Streamlit is an open source app framework in Python language. It helps users to create web apps for Data Science and Machine Learning in a short time. This Project is developed by Pratik ,Himanshu and Gaurav . You can find more about the developers on their GitHub Profiles shared below.<br>Hope you are able to employ this application well and get your desired output.<br> Cheers!</p>', unsafe_allow_html=True)
     st.subheader('Pratik Biradar [![Repo](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/biradarpratik) ')
     st.subheader(
-        'Himanshu Bendale [![Repo](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/biradarpratik) ')
+        'Himanshu Bendale [![Repo](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/HimanshuBendale) ')
     st.subheader(
         'Gaurav Avghade [![Repo](https://badgen.net/badge/icon/GitHub?icon=github&label)](https://github.com/gauravavghade) ')
