@@ -33,10 +33,10 @@ Making a new directory for the project
 ```  
 Cloning the repository to your local machine
 ```bash
-  https://github.com/biradarpratik/finswift.git
+  git clone https://github.com/biradarpratik/finswift.git
 ```
 ```bash
-  cd FinSwift
+  cd finswift
 ``` 
 Installing the Requirements 
 ```bash
